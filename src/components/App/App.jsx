@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import './App.css'
 import Foto from '../../assets/Foto.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileImage, faVideo, faMicrophone, faTag, faThumbsUp, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faFileImage, faVideo, faMicrophone, faTag, faThumbsUp, faComment, faShare, faCircleCheck, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [text, setText] = useState("");
@@ -122,7 +122,9 @@ function App() {
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={handleCloseModal}>&times;</span>
-            <h3>Vista previa</h3>
+            <h3>Crear Publicación</h3>
+            <hr />
+            <br />
             {image && (
               <div className="modal-image-preview">
                 <img src={image} alt="Vista previa" />
@@ -154,9 +156,21 @@ function App() {
                 <img className="fixed-image" src={Foto} alt="" />
               </div>
               <div className="text_foto">
-                <strong>Diego Méndez . 5min</strong> <br />
-                {post.image && <img className="post-image" src={post.image} alt="Publicación" />}
-                <p>{post.text}</p>
+                <div className="contents">
+                  <div>
+                    <strong>Diego Méndez</strong><FontAwesomeIcon className="icon" icon={faCircleCheck}/><strong>. 5min</strong>
+                  </div>
+                  <div>
+                    <FontAwesomeIcon className="icon2" icon={faEllipsis}/> <br />
+                  </div>
+                </div>
+
+                <div>
+                  {post.image && <img className="post-image" src={post.image} alt="Publicación" />}
+                </div>
+                <div className="postText">
+                  <p>{post.text}</p>
+                </div>
                 <hr />
                 <div className="iconos_post">
                   <div className="icon_p" onClick={handleLike}>

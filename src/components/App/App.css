@@ -181,7 +181,6 @@
 }
 
 .body2 .post .post-content .text_foto{
-  display: block;
   color: #fff;
   flex-grow: 1;
   word-wrap: break-word; /* Permite que las palabras largas se dividan al final de la línea */
@@ -192,20 +191,39 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.body2 .post .post-content .text_foto .post-image{
-  width: 300px;
-  margin-left: 30%;
-  margin-bottom: 20px;
-  margin-top: 20px;
+.body2 .post .post-content .text_foto .contents{
+  display: flex;
+  justify-content: space-between;
 }
 
-.text_foto .iconos_post{
+.body2 .post .post-content .text_foto strong{
+  margin-right: 10px;
+}
+
+.body2 .post .post-content .text_foto .icon2{
+  
+}
+
+.body2 .post .post-content .text_foto .icon{
+  margin-right: 10px;
+}
+
+.body2 .post .post-content .text_foto .post-image{
+  width: 100%;
+  margin: 20px auto
+}
+
+.body2 .post .post-content .text_foto .postText p{
+  margin: 0 0 20px 0;
+}
+
+.body2 .post .post-content .text_foto .iconos_post{
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
 }
 
-.text_foto .iconos_post .icon_p{
+.body2 .post .post-content .text_foto .iconos_post .icon_p{
   display: flex;
   align-items: center;
   gap: 10px;
@@ -217,11 +235,11 @@
   justify-content: center;
 }
 
-.text_foto .iconos_post .icon_p:hover{
+.body2 .post .post-content .text_foto .iconos_post .icon_p:hover{
   background-color: rgb(78, 73, 73);
 }
 
-.text_foto .iconos_post .icon_p p{
+.body2 .post .post-content .text_foto .iconos_post .icon_p p{
   margin: 0;
 }
 
@@ -242,6 +260,7 @@
 .modal-content {
   background: rgb(78, 73, 73);
   padding: 30px;
+  border: 1px solid #fff;
   border-radius: 8px;
   width: 90%;
   max-width: 500px;
@@ -250,7 +269,8 @@
 
 .modal-content h3{
   color: #fff;
-  text-align: center;
+  text-align: start;
+  margin: 0 0 10px 0;
 }
 
 .modal-image-preview img {
@@ -261,11 +281,12 @@
   border: 1px solid #fff;
   padding: 30px;
   margin-bottom: 20px;
+  width: 50%;
 }
 
 .close {
   position: absolute;
-  top: 35px;
+  top: 25px;
   right: 40px;
   font-size: 30px;
   cursor: pointer;
@@ -284,7 +305,7 @@
   width: 100%;
   height: 100px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 30px;
   padding: 5px 20px;
   background-color: rgb(138, 132, 132);
