@@ -12,9 +12,9 @@ Se desarrollo mediante la tecnología REACT + vite.
 
 Podemos clonar el proyecto desde [aquí](https://github.com/DiegoFMendezV/RedSocialApp) corriendo el comando:
 
-### `git clone` y la url del proyecto. 
+### `git clone`
 
-Luego abrirlo en el editor de codigo de preferencia y posterior correr:
+y la url del proyecto. Luego abrirlo en el editor de codigo de preferencia y posterior correr:
 
 ### `npm install`
 
