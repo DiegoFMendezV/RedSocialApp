@@ -14,6 +14,11 @@ function App() {
   const [modalText, setModalText] = useState(""); // Texto del modal
   const textareaRef = useRef(null);
 
+  // Activar botones cuando se hace clic en el input
+  const handleClick = () => {
+    setIsActive(true);
+  };
+
   // Manejar el cambio en el archivo de imagen
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -32,11 +37,6 @@ function App() {
     setIsActive(false); // Resetear estado para ocultar los botones
     setModalText(""); // Limpiar texto del modal
     setShowModal(false); // Cerrar el modal
-  };
-
-  // Activar botones cuando se hace clic en el input
-  const handleClick = () => {
-    setIsActive(true);
   };
 
   const autoResize = () => {
@@ -78,10 +78,9 @@ function App() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Qué estás pensando?"
-            onClick={handleClick}
-          />
+            onClick={handleClick} />
         </div>
-
+  
         {isActive && (
           <>
             <div className="content2">
