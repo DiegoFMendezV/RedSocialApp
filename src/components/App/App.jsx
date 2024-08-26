@@ -120,23 +120,29 @@ function App() {
       {/* Modal para la vista previa de la imagen */}
       {showModal && (
         <div className="modal">
-        <div className="modal-content">
-          <span className="close" onClick={handleCloseModal}>&times;</span>
-          <h3>Vista previa:</h3>
-          {image && (
-            <div className="modal-image-preview">
-              <img src={image} alt="Vista previa" />
+          <div className="modal-content">
+            <span className="close" onClick={handleCloseModal}>&times;</span>
+            <h3>Vista previa</h3>
+            {image && (
+              <div className="modal-image-preview">
+                <img src={image} alt="Vista previa" />
+              </div>
+            )}
+            <div className="modal_input">
+              <div className="content_input">
+                <textarea
+                  className="input"
+                  value={modalText}
+                  onChange={(e) => setModalText(e.target.value)}
+                  placeholder="Qué estás pensando?"
+                />
+              </div>
+              <div className="publicar">
+                <button onClick={handleSubmit}>Publicar</button>
+              </div>
             </div>
-          )}
-          <textarea
-            className="modal-input"
-            value={modalText}
-            onChange={(e) => setModalText(e.target.value)}
-            placeholder="Escribe tu publicación aquí..."
-          />
-          <button onClick={handleSubmit}>Aceptar</button>
+          </div>
         </div>
-      </div>
       )}
 
       {/* Mostrar las publicaciones */}

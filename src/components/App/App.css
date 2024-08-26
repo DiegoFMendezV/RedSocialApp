@@ -202,7 +202,7 @@
 .text_foto .iconos_post{
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .text_foto .iconos_post .icon_p{
@@ -226,59 +226,78 @@
 }
 
 .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+  background: rgb(78, 73, 73);
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
   position: relative;
-  width: 30%; /* Hacer el modal más grande */
-  max-width: 900px; /* Limitar el tamaño máximo */
-  height: auto;
-  max-height: 90vh; /* Limitar la altura máxima */
-  overflow-y: auto; /* Permitir desplazamiento si el contenido es demasiado grande */
+}
+
+.modal-content h3{
+  color: #fff;
+  text-align: center;
+}
+
+.modal-image-preview img {
+  max-width: 100%;
+  max-height: 400px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #fff;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 35px;
+  right: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.modal_input{
   display: block;
 }
 
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
+.modal_input .content_input{
+  width: 100%;
 }
 
-.modal-image {
-  max-width: 100%;
-  max-height: 70vh; /* Limitar la altura de la imagen dentro del modal */
-  object-fit: contain;
-  margin-bottom: 50px; /* Espacio inferior para el botón */
-  margin-top: 50px;
-}
-
-.accept-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.modal_input .content_input .input {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  padding: 5px 20px;
+  background-color: rgb(138, 132, 132);
+  color: #fff;
+  overflow: hidden;
+  resize: none;
+  line-height: 1.5;
+  box-sizing: border-box;
   font-size: 16px;
-  margin: 30px 0;
+  border: 1px solid #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.accept-button:hover {
-  background-color: #45a049;
+.modal_input .content_input .input::placeholder{
+  color: rgb(195, 187, 187);
 }
