@@ -2,24 +2,23 @@
 
 Proyecto realizado con el fin de presentar prueba técnica para el puesto de Desarrollador Frontend Junior de la empresa Panthera.
 
-La prueba consiste en clonar el input para publicar posts del proyecto KlipClub, pudiendo adjuntar imagenes.
+La prueba consiste en clonar el input para publicar posts del proyecto KlipClub, pudiendo adjuntar imagenes y todo lo relacionado con ello.
 
 # HERRAMIENTAS
 
-Se desarrollo mediante la tecnología REACT.
+Se desarrollo mediante la tecnología REACT + vite.
 
 # PROYECTO
 
 Podemos clonar el proyecto desde [aquí](https://github.com/DiegoFMendezV/RedSocialApp) corriendo el comando:
 
-### `git clone` 
-y la url del proyecto. 
+### `git clone` y la url del proyecto. 
 
 Luego abrirlo en el editor de codigo de preferencia y posterior correr:
 
 ### `npm install`
 
-Por último para levnatar el servidor se debe correr el comando:
+Por último para levantar el servidor se debe correr el comando:
 
 ### `npm run dev`
 
