@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import './App.css'
-import Foto from './assets/Foto.jpg'
+import Foto from '../../assets/Foto.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileImage, faVideo, faMicrophone, faTag, faThumbsUp, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,12 +11,14 @@ function App() {
   const [isActive, setIsActive] = useState(false);
   const textareaRef = useRef(null);
   const [likeCount, setLikeCount] = useState(0);
+  const [showModal, setShowModal] = useState(false); // Estado para el modal
 
   // Manejar el cambio en el archivo de imagen
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setImage(URL.createObjectURL(file)); // Mostrar vista previa de la imagen seleccionada
+      setShowModal(true); // Abrir el modal
     }
   };
 
@@ -52,6 +54,11 @@ function App() {
 
   const handleLike = () => {
     setLikeCount(likeCount + 1);
+  };
+
+  // Manejar el cierre del modal
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -107,13 +114,25 @@ function App() {
         )}
       </div>
 
-      {/* Mostrar la vista previa de la imagen antes de publicar */}
-      {image && (
-        <div className="preview">
-          <h3>Vista previa</h3>
-          <img src={image} alt="Vista previa" />
+      {/* Modal para la vista previa de la imagen */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close-button" onClick={handleCloseModal}>
+              &times;
+            </span>
+            <div>
+              < img src={image} alt="Vista previa" className="modal-image" />
+            </div>
+            <div>
+              <button className="accept-button" onClick={handleCloseModal}>
+                Aceptar
+              </button>
+            </div>
+          </div>
         </div>
       )}
+
       {/* Mostrar las publicaciones */}
       <div className="body2" >
         {posts.map((post, index) => (
