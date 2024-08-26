@@ -10,6 +10,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const textareaRef = useRef(null);
+  const [likeCount, setLikeCount] = useState(0);
 
   // Manejar el cambio en el archivo de imagen
   const handleImageChange = (event) => {
@@ -47,6 +48,10 @@ function App() {
 
   const handleClick2 = () => {
     fileInputRef.current.click(); // Abre el selector de archivos cuando se hace clic en el icono
+  };
+
+  const handleLike = () => {
+    setLikeCount(likeCount + 1);
   };
 
   return (
@@ -123,9 +128,9 @@ function App() {
                 <p>{post.text}</p>
                 <hr />
                 <div className="iconos_post">
-                  <div className="icon_p">
+                  <div className="icon_p" onClick={handleLike}>
                     <FontAwesomeIcon icon={faThumbsUp} />
-                    <p>20 Likes</p>
+                    <p>{likeCount} Likes</p>
                   </div>
                   <div className="icon_p">
                     <FontAwesomeIcon icon={faComment} />
