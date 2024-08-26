@@ -9,9 +9,10 @@ function App() {
   const [image, setImage] = useState(null);
   const [posts, setPosts] = useState([]);
   const [isActive, setIsActive] = useState(false);
-  const textareaRef = useRef(null);
   const [likeCount, setLikeCount] = useState(0);
   const [showModal, setShowModal] = useState(false); // Estado para el modal
+  const [modalText, setModalText] = useState(""); // Texto del modal
+  const textareaRef = useRef(null);
 
   // Manejar el cambio en el archivo de imagen
   const handleImageChange = (event) => {
@@ -24,11 +25,13 @@ function App() {
 
   // Manejar el envío del post
   const handleSubmit = () => {
-    const newPost = { text, image };
+    const newPost = { text: modalText || text, image };
     setPosts([newPost, ...posts]); // Agregar nuevo post
     setText(""); // Limpiar campo de texto
     setImage(null); // Limpiar imagen
     setIsActive(false); // Resetear estado para ocultar los botones
+    setModalText(""); // Limpiar texto del modal
+    setShowModal(false); // Cerrar el modal
   };
 
   // Activar botones cuando se hace clic en el input
@@ -117,20 +120,23 @@ function App() {
       {/* Modal para la vista previa de la imagen */}
       {showModal && (
         <div className="modal">
-          <div className="modal-content">
-            <span className="close-button" onClick={handleCloseModal}>
-              &times;
-            </span>
-            <div>
-              < img src={image} alt="Vista previa" className="modal-image" />
+        <div className="modal-content">
+          <span className="close" onClick={handleCloseModal}>&times;</span>
+          <h3>Vista previa:</h3>
+          {image && (
+            <div className="modal-image-preview">
+              <img src={image} alt="Vista previa" />
             </div>
-            <div>
-              <button className="accept-button" onClick={handleCloseModal}>
-                Aceptar
-              </button>
-            </div>
-          </div>
+          )}
+          <textarea
+            className="modal-input"
+            value={modalText}
+            onChange={(e) => setModalText(e.target.value)}
+            placeholder="Escribe tu publicación aquí..."
+          />
+          <button onClick={handleSubmit}>Aceptar</button>
         </div>
+      </div>
       )}
 
       {/* Mostrar las publicaciones */}
